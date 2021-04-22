@@ -109,4 +109,8 @@ sns.barplot(xlabel, ylabel, data=df, palette="husl").set_title(title);
 - Using matplotlib to plot a graph.
 #### Displaying Graph of the Project.
 - ![Graph](https://raw.githubusercontent.com/GD-Prasad/big_data_final_project/main/Screen%20Shot%202021-04-21%20at%208.33.26%20PM.png)
- 
+## Refrences:
+- [Spliting of Data](https://campus.datacamp.com/courses/big-data-fundamentals-with-pyspark/programming-in-pyspark-rdds?ex=14)
+- [Removing Stop Words](https://stackoverflow.com/questions/58717147/apply-stopwordsremover-and-regextokenizer-to-multiple-columns-in-spark-2-4-3)
+- [Removing spaces](https://stackoverflow.com/questions/3232953/python-removing-spaces-from-list-objects/39668144)
+- [Dr. Denise Case](https://github.com/denisecase/starting-spark)
