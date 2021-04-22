@@ -26,11 +26,11 @@
  - Here the data is the the temp folder and not in the data folder. So, We move the data from tmp to dbfs.
  
  #### Filtering the Data.
- ```python.
+ ```python
 gdRDD=sc.textFile("dbfs:/data/gd_fp_data.txt",5);
 ```
 - Moving the data into spark to store data in spark by converting the data into RDD.
- ```python.
+ ```python
 # Spliting and Converting all the data into Lower Case.
 gdWordsRDD=gdRDD.flatMap(lambda line:line.lower().strip().split(" "));
 ```
@@ -38,7 +38,7 @@ gdWordsRDD=gdRDD.flatMap(lambda line:line.lower().strip().split(" "));
 - For which the data should be split into seperate words.
 - We use space to seperate each word and split them.
 
- ```python.
+ ```python
 # To remove Stop words.
 from pyspark.ml.feature import StopWordsRemover as swr
 remove =swr();
@@ -63,5 +63,46 @@ gdIKVPairsRDD = cleanData.filter(lambda x: x != "");
  - Here the punctuations will be replaced by spaces.
  - Using Lambda expression to remove spaces in the data.
  
- 
+ ```python
+ # Setting Map for the words with the number of repetitions.
+gdIKVPairsRDDs= gdIKVPairsRDD.map(lambda word:(word,1));
+gdresultsRDD=gdIKVPairsRDDs.reduceByKey(lambda acc,value:acc+value);
+# Filtering Top 25 Words with highest repetitions.
+gdResult = gdresultsRDD.map(lambda x: (x[1], x[0])).sortByKey(False).take(15);
+```
+- Mapping each word with a number 1.
+- So that we can just add the Map value while same word is found in the lambda function.
+- Once the words are mapped with there repetition number.
+- Only top 15 higest words repeted are being filtered.
+```python
+print(gdResult);
+```
+- Printing the result to view the top 10 words.
+```python 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from collections import Counter
+
+# preparing chart information
+source = 'The Project Gutenberg eBook of Hindu Magic'
+title = 'Top Words in ' + source
+xlabel = 'word'
+ylabel = 'count' 
+```
+- Importing all required libraries to polt a graph.
+- Creating the chart by setiing the source,titile of the chart, x label as words and y label as count for the graph.
+```python
+# create Pandas dataframe from list of tuples
+df = pd.DataFrame.from_records(gdResult, columns =[xlabel, ylabel]) ;
+print(df);
+
+# create plot (using matplotlib)
+plt.figure(figsize=(10,6));
+sns.barplot(xlabel, ylabel, data=df, palette="husl").set_title(title);
+```
+- Creating a pandas dataframe to store the data as a data frame.
+- the data frame consits of data with it's label.
+- Using matplotlib to plot a graph.
  
