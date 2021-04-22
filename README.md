@@ -14,6 +14,7 @@
 # About Data:
 - I have selected The Project Gutenberg eBook of Hindu Magic, which is a free source and has text with no images.
 - This text contains punctuations and some gerneral words like I, the , on , etc.
+- [Link to the Data.](https://www.gutenberg.org/files/65121/65121-0.txt)
 
 # Commands Used:
 #### Importing Data from external webpage in text form with no images.
