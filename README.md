@@ -106,4 +106,6 @@ sns.barplot(xlabel, ylabel, data=df, palette="husl").set_title(title);
 - Creating a pandas dataframe to store the data as a data frame.
 - the data frame consits of data with it's label.
 - Using matplotlib to plot a graph.
+#### Displaying Graph of the Project.
+- ![Graph](https://raw.githubusercontent.com/GD-Prasad/big_data_final_project/main/Screen%20Shot%202021-04-21%20at%208.33.26%20PM.png)
  
