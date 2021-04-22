@@ -1,5 +1,6 @@
-# big_data_final_project
-- [Prasad Golla Durga](https://github.com/GD-Prasad)
+# Big Data Final Project.
+<table>
+<td align="center"><a href="https://github.com/GD-Prasad"><img src="https://avatars.githubusercontent.com/u/59986885?s=400&u=df8057f5d9aa0936da702cdb1a5a776ceddf12a5&v=4" width="100px;" alt=""/><br /><sub><b>GD Prasad</b></sub></a><br /></td></table>
 
 # Resource file for this project.
 - []()
